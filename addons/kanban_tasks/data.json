@@ -1,0 +1,71 @@
+{
+  "categories": [
+    {
+      "title": "Feature",
+      "color": "6394ed"
+    },
+    {
+      "title": "Bug",
+      "color": "dd5b27"
+    },
+    {
+      "title": "Improvement",
+      "color": "43b777"
+    }
+  ],
+  "columns": [
+    {
+      "stages": [
+        0
+      ]
+    },
+    {
+      "stages": [
+        1
+      ]
+    },
+    {
+      "stages": [
+        2
+      ]
+    },
+    {
+      "stages": [
+        3
+      ]
+    }
+  ],
+  "stages": [
+    {
+      "title": "Ideas",
+      "tasks": [
+
+      ]
+    },
+    {
+      "title": "Todo",
+      "tasks": [
+        0
+      ]
+    },
+    {
+      "title": "Doing",
+      "tasks": [
+
+      ]
+    },
+    {
+      "title": "Done",
+      "tasks": [
+
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "category": 0,
+      "title": "Load and Delete Blocks",
+      "details": ""
+    }
+  ]
+}
