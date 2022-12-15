@@ -39,13 +39,15 @@
     {
       "title": "Ideas",
       "tasks": [
-
+        1,
+        2,
+        3
       ]
     },
     {
       "title": "Todo",
       "tasks": [
-        0
+
       ]
     },
     {
@@ -57,7 +59,7 @@
     {
       "title": "Done",
       "tasks": [
-
+        0
       ]
     }
   ],
@@ -65,6 +67,21 @@
     {
       "category": 0,
       "title": "Load and Delete Blocks",
+      "details": ""
+    },
+    {
+      "category": 2,
+      "title": "https://docs.godotengine.org/en/stable/tutorials/3d/using_multi_mesh_instance.html",
+      "details": ""
+    },
+    {
+      "category": 2,
+      "title": "https://docs.godotengine.org/en/stable/tutorials/3d/procedural_geometry/index.html",
+      "details": ""
+    },
+    {
+      "category": 2,
+      "title": "https://godotengine.org/qa/19366/how-to-use-multimeshinstance",
       "details": ""
     }
   ]

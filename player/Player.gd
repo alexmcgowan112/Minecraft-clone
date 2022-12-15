@@ -18,6 +18,9 @@ var mouseDelta : Vector2 = Vector2()
 
 onready var camera = $Camera
 onready var hitbox = $CollisionShape
+onready var rayCast = $Camera/RayCast
+var block = load("res://environment/Block.tscn")
+onready var highlight = get_parent().get_node("BlockHighlight")
 	
 
 func _ready():
@@ -74,9 +77,34 @@ func _physics_process(delta):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	mouseDelta = Vector2()
+	
+	#highlight targeted block
+	if rayCast.is_colliding():
+		highlight.visible = true
+		highlight.global_translation = rayCast.get_collider().global_translation
+	else:
+		highlight.visible = false
 
 func _input(event):
 	if event is InputEventMouseMotion:
 		mouseDelta = event.relative 
-	if event is InputEventMouseButton and Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	if event is InputEventMouseButton and event.pressed:
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		if event.button_index == 1:
+			if rayCast.is_colliding():
+				rayCast.get_collider().queue_free()
+		else:
+			if rayCast.is_colliding():
+				var placeOffset = rayCast.get_collision_normal()
+				var blockPos = rayCast.get_collider().global_translation
+				var newPos = Vector3(blockPos.x+round(placeOffset.x), blockPos.y+round(placeOffset.y), blockPos.z+round(placeOffset.z))
+				var diff = newPos-global_translation+Vector3(0.5,0,0.5)
+				if not(abs(diff.x)<0.8 and abs(diff.z)<0.8 and diff.y<1.8 and diff.y>-1):
+					var chunk = rayCast.get_collider().get_parent()
+					var newBlock = block.instance()
+					chunk.add_child(newBlock)
+					newBlock.global_translation = newPos
+					chunk.blocks.append(newBlock)
+		
+		

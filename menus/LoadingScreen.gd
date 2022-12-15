@@ -3,7 +3,7 @@ extends Control
 onready var text = $"CanvasLayer/MarginContainer/VBoxContainer/CenterContainer/Progress Text"
 
 func set_progress(blocks : int, toLoad : int):
-	text.text = "Loaded Blocks:\n" + str(blocks) + " / " + str(toLoad)
+	text.text = "Loaded Chunks:\n" + str(blocks) + " / " + str(toLoad)
 	
 func fade(fadeTime : float):
 	var tween = $Tween

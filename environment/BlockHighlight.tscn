@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Spatial
+
+"
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0, 0, 0, 1 )
+
+[node name="BlockHighlight" type="Spatial"]
+script = SubResource( 2 )
+
+[node name="CSGCombiner" type="CSGCombiner" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 0.5 )
+
+[node name="CSGBox" type="CSGBox" parent="CSGCombiner"]
+width = 1.01
+height = 1.01
+depth = 1.01
+material = SubResource( 1 )
+
+[node name="CSGBox2" type="CSGBox" parent="CSGCombiner"]
+operation = 2
+width = 0.99
+height = 0.99
+material = SubResource( 1 )
+
+[node name="CSGBox3" type="CSGBox" parent="CSGCombiner"]
+operation = 2
+width = 0.99
+depth = 0.99
+material = SubResource( 1 )
+
+[node name="CSGBox4" type="CSGBox" parent="CSGCombiner"]
+operation = 2
+height = 0.99
+depth = 0.99
+material = SubResource( 1 )
